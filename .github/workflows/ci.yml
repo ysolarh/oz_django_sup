@@ -8,7 +8,7 @@ jobs:
       DB_HOST: 127.0.0.1
       DB_PORT: 3306
       DB_USER: root
-      DB_PASSWORD: akdls
+      DB_PASSWORD: 1234
       DB_DATABASE: oz_django_sup
     steps:
       - name: Checkout the codes
@@ -51,4 +51,3 @@ jobs:
       - name: Run Mypy
         run: |
           poetry run mypy .
-
