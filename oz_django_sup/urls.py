@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-]
+from article.views import CommentView
+
+urlpatterns = [path("admin/", admin.site.urls), path("v1/comments", csrf_exempt(CommentView.as_view()))]
