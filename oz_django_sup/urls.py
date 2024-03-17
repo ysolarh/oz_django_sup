@@ -21,4 +21,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from article.views import CommentView
 
-urlpatterns = [path("admin/", admin.site.urls), path("v1/comments", csrf_exempt(CommentView.as_view()))]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("v1/comments", csrf_exempt(CommentView.as_view()), name="comments")
+]

@@ -13,6 +13,7 @@ class CommentView(View):
         errors = []
         try:
             body = json.loads(request.body)
+            # print(body)
         except JSONDecodeError:
             # return JsonResponse({"error": ["Json 형식 아님"]}, status=BAD_REQUEST)
             errors.append("JSON 형식이 아닙니다.")
@@ -40,7 +41,7 @@ class CommentView(View):
         if "author" not in body:
             errors.append("author 가 없습니다.")
         elif not isinstance(body["author"], str):
-            errors.append(f"author 는 문자열 여야 합니다. 전달된 값: {body['author']}")
+            errors.append(f"author 는 문자열이어야 합니다. 전달된 값: {body['author']}")
         if "body" not in body:
             errors.append("body 가 없습니다.")
         elif not isinstance(body["body"], str):
